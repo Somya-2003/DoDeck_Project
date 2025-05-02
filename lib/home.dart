@@ -6,8 +6,7 @@
 // import 'package:shared_preferences/shared_preferences.dart';
 //
 //
-// ///When you moved them to a new file, you also need to import that file
-// /// wherever you're trying to use those classes.
+//
 // import 'task_list.dart';
 // import 'setting_s.dart';
 // import 'user_login.dart';
@@ -242,6 +241,8 @@ import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'theme_style.dart';
 
+///When you moved them to a new file, you also need to import that file
+/// wherever you're trying to use those classes.
 import 'task_list.dart';
 import 'setting_s.dart';
 import 'user_login.dart';
@@ -270,18 +271,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       context, MaterialPageRoute(builder: (_) => LoginScreen()),
     );
   }
-
-  // Future<void> _initDatabase() async {
-  //   String path = join(await getDatabasesPath(), "task.db");
-  //
-  //   _database = await openDatabase(
-  //     path,
-  //     version: 1,
-  //     onCreate: (db, version) {
-  //       return db.execute(sqlCreate);
-  //     },
-  //   );
-  // }
 
   Future<void> _initDatabase() async {
     String path = join(await getDatabasesPath(), "task.db");
@@ -545,6 +534,26 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
 
 
+
+
+
+
+
+
+
+
+
+// Future<void> _initDatabase() async {
+//   String path = join(await getDatabasesPath(), "task.db");
+//
+//   _database = await openDatabase(
+//     path,
+//     version: 1,
+//     onCreate: (db, version) {
+//       return db.execute(sqlCreate);
+//     },
+//   );
+// }
 
 
 //USING PROVIDER THEME
