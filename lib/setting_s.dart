@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'task_details.dart';
@@ -8,7 +7,6 @@ class Settings extends StatefulWidget{
 }
 
 class _SettingsState extends State<Settings>{
-
   late Database _database;
 
   @override

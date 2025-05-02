@@ -1,11 +1,8 @@
-
-
 import 'package:dodeck_project/task_details.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AddTaskScreen extends StatefulWidget{
-
   final Database database;
   AddTaskScreen({required this.database});
 
@@ -78,20 +75,15 @@ class _AddTaskScreenState extends State<AddTaskScreen>{
                 );
               }, child: Text('Show Task')),
             ],
-          ),
-        ) ,
-      ),
+          ),) ,),
       floatingActionButton: FloatingActionButton(
         splashColor: Colors.pink[200],
         child: Icon(Icons.arrow_back, color: Colors.pink,),
         onPressed: () {
           Navigator.pop(context);
-        },
-      ),
-
+        },),
     );
-  }
-}
+  }}
 
 
 

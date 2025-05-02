@@ -2,14 +2,12 @@ import 'package:dodeck_project/home.dart';
 import 'package:dodeck_project/user_login.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-//import 'theme_style.dart';
 
 void main() {
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget{
-
   Future<bool> checkLoginStatus() async{
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool("is_login") ?? false;
