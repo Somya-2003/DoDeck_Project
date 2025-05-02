@@ -1,6 +1,7 @@
 # dodeck_project
 
-A new Flutter project.
+DoDeck is a Flutter and Dart-based task management application designed to help users efficiently organize and track their daily tasks. The app offers features such as adding, deleting, updating, and marking the status of tasks. To ensure user privacy and data security, DoDeck includes a secure login system for personalized use.
+
 
 ## Getting Started
 
