@@ -28,7 +28,7 @@ class _AddTaskScreenState extends State<AddTaskScreen>{
       body: Padding(padding: const EdgeInsets.all(16),
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               TextField(
                 controller: _titlecon,
@@ -43,7 +43,7 @@ class _AddTaskScreenState extends State<AddTaskScreen>{
               SizedBox(height: 20),
               TextField(
                 controller: _desccon,
-                maxLines: 10,
+                maxLines: 7,
                 decoration: InputDecoration(
                   icon: Icon(Icons.text_format),
                   iconColor: Colors.pink,
@@ -53,27 +53,35 @@ class _AddTaskScreenState extends State<AddTaskScreen>{
                   fillColor: Colors.pink[700],
                 ),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  ElevatedButton(onPressed: () async{
+                    if(_titlecon.text.isNotEmpty && _desccon.text.isNotEmpty){
+                      await _insertTask(_titlecon.text, _desccon.text);
+                      _titlecon.clear();
+                      _desccon.clear();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Task Added ')),
+                      );
+                    }
+                    else{
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please fill both fields')),
+                      );
+                    }
+                  }, child: Text('Add task')),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => TaskDetails(database: widget.database))
+                    );
+                  }, child: Text('Show Task')),
 
-              ElevatedButton(onPressed: () async{
-                if(_titlecon.text.isNotEmpty && _desccon.text.isNotEmpty){
-                  await _insertTask(_titlecon.text, _desccon.text);
-                  _titlecon.clear();
-                  _desccon.clear();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Task Added ')),
-                  );
-                }
-                else{
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Please fill both fields')),
-                  );
-                }
-              }, child: Text('Add task')),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TaskDetails(database: widget.database))
-                );
-              }, child: Text('Show Task')),
+                ],
+
+              )
             ],
           ),) ,),
       floatingActionButton: FloatingActionButton(
